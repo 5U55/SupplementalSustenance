@@ -1,5 +1,6 @@
 package com.ejs.supplementalsustenance;
 
+import com.ejs.supplementalsustenance.feature.BerryBushBlock;
 import com.ejs.supplementalsustenance.registry.ModItems;
 import com.google.common.collect.ImmutableList;
 
@@ -22,9 +23,11 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.RandomFeatureConfig;
+import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
@@ -47,26 +50,30 @@ public class SupplementalSustenance implements ModInitializer{
 	
 	public static final ConfiguredFeature<?, ?> FOREST_TREES = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(LEMON_TREE.withChance(0.2F), PEACH_TREE.withChance(0.2F), ORANGE_TREE.withChance(0.2F), LIME_TREE.withChance(0.2F)), ConfiguredFeatures.OAK)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
 
+	public static final ConfiguredFeature<?, ?> RASPBERRY_BUSH = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(ModItems.RASPBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 3)), SimpleBlockPlacer.INSTANCE).tries(12).build());
+	public static final ConfiguredFeature<?, ?> BLUEBERRY_BUSH = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(ModItems.BLUEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 3)), SimpleBlockPlacer.INSTANCE).tries(12).build());
+	
+	public static final ConfiguredFeature<?, ?> BUSHES = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(RASPBERRY_BUSH.withChance(0.2F), BLUEBERRY_BUSH.withChance(0.2F)), RASPBERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
+
 	
 	@Override
 	public void onInitialize() {
 		ModItems.registerItems();
 		
-		//RegistryKey<ConfiguredFeature<?, ?>> peachTree = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,  new Identifier(MOD_ID, "peach_tree"));
-		//Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, peachTree.getValue(), PEACH_TREE);
-
-		//RegistryKey<ConfiguredFeature<?, ?>> lemonTree = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,  new Identifier(MOD_ID, "lemon_tree"));
-		//Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, lemonTree.getValue(), LEMON_TREE);
-		
 		RegistryKey<ConfiguredFeature<?, ?>> forestTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,  new Identifier(MOD_ID, "forest_trees"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, forestTrees.getValue(), FOREST_TREES);
 		
-		BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.FOREST), GenerationStep.Feature.VEGETAL_DECORATION, forestTrees);
-		//BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.FOREST), GenerationStep.Feature.VEGETAL_DECORATION, lemonTree);
+		RegistryKey<ConfiguredFeature<?, ?>> taigaVegetation = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,  new Identifier(MOD_ID, "taiga_vegetation"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, taigaVegetation.getValue(), BUSHES);
 		
+		BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.FOREST), GenerationStep.Feature.VEGETAL_DECORATION, forestTrees);
+		BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.TAIGA), GenerationStep.Feature.VEGETAL_DECORATION, taigaVegetation);
+			
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.PEACH_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.LEMON_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.ORANGE_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.LIME_SAPLING, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.RASPBERRY_BUSH, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.BLUEBERRY_BUSH, RenderLayer.getCutout());
 	}
 }
