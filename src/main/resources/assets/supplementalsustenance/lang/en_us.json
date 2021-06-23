@@ -7,5 +7,15 @@
 	"item.supplementalsustenance.lemon": "Lemon",
 	"block.supplementalsustenance.orange_sapling": "Orange Sapling",
 	"block.supplementalsustenance.orange_leaves": "Orange Leaves",
-	"item.supplementalsustenance.orange": "Orange"
+	"item.supplementalsustenance.orange": "Orange",
+	"block.supplementalsustenance.lime_sapling": "Lime Sapling",
+	"block.supplementalsustenance.lime_leaves": "Lime Leaves",
+	"item.supplementalsustenance.lime": "Lime",
+	"item.supplementalsustenance.lemon_loaf": "Lemon Loaf",
+	"item.supplementalsustenance.lemon_pie": "Lemon Merangue Pie",
+	"item.supplementalsustenance.lime_pie": "Key Lime Pie",
+	"item.supplementalsustenance.orange_juice": "Orange Juice",
+	"item.supplementalsustenance.peach_pie": "Peach Juice",
+	"item.supplementalsustenance.lemon_juice": "Lemonade",
+	"item.supplementalsustenance.lime_juice": "Limeade"
 }

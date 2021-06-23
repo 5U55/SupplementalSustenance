@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#L#"
+	],
+	"key": {
+		"#": {
+			"item": "minecraft:wheat"
+		},
+		"L": {
+			"item": "supplementalsustenance:lemon"
+		}
+	},
+	"result": {
+		"item": "supplementalsustenance:lemon_loaf"
+	}
+}

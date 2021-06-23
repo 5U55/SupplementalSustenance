@@ -42,7 +42,10 @@ public class SupplementalSustenance implements ModInitializer{
 	public static final ConfiguredFeature<TreeFeatureConfig, ?> ORANGE_TREE = Feature.TREE.configure((new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(ModItems.ORANGE_LEAVES.getDefaultState()), new BlobFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0), 2), new StraightTrunkPlacer(4, 2, 0), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build());
 	public static final TreeFeatureConfig ORANGE_TREE_CONFIGURED = ORANGE_TREE.config;
 	
-	public static final ConfiguredFeature<?, ?> FOREST_TREES = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(LEMON_TREE.withChance(0.2F), PEACH_TREE.withChance(0.2F), ORANGE_TREE.withChance(0.2F)), ConfiguredFeatures.OAK)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
+	public static final ConfiguredFeature<TreeFeatureConfig, ?> LIME_TREE = Feature.TREE.configure((new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(ModItems.LIME_LEAVES.getDefaultState()), new BlobFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0), 2), new StraightTrunkPlacer(4, 2, 0), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build());
+	public static final TreeFeatureConfig LIME_TREE_CONFIGURED = ORANGE_TREE.config;
+	
+	public static final ConfiguredFeature<?, ?> FOREST_TREES = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(LEMON_TREE.withChance(0.2F), PEACH_TREE.withChance(0.2F), ORANGE_TREE.withChance(0.2F), LIME_TREE.withChance(0.2F)), ConfiguredFeatures.OAK)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
 
 	
 	@Override
@@ -64,5 +67,6 @@ public class SupplementalSustenance implements ModInitializer{
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.PEACH_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.LEMON_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.ORANGE_SAPLING, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModItems.LIME_SAPLING, RenderLayer.getCutout());
 	}
 }
