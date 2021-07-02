@@ -58,7 +58,8 @@ public class SupplementalSustenance implements ModInitializer{
 	public static final ConfiguredFeature<?, ?> BUSHES = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(RASPBERRY_BUSH.withChance(0.2F), BLUEBERRY_BUSH.withChance(0.2F), STRAWBERRY_BUSH.withChance(0.2F)), RASPBERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
 
 	public static final ConfiguredFeature<?, ?> PINEAPPLE_PLANT = Feature.BLOCK_PILE.configure(new BlockPileFeatureConfig(new SimpleBlockStateProvider(ModItems.PINEAPPLE_PLANT.getDefaultState())));
-	 
+	public static final ConfiguredFeature<?, ?> JUNGLE_PLANTS = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(PINEAPPLE_PLANT.withChance(0.1F)), PINEAPPLE_PLANT)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
+
 	@Override
 	public void onInitialize() {
 		ModItems.registerItems();
@@ -70,7 +71,7 @@ public class SupplementalSustenance implements ModInitializer{
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, taigaVegetation.getValue(), BUSHES);
 		
 		RegistryKey<ConfiguredFeature<?, ?>> pina = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,  new Identifier(MOD_ID, "jungle_pinapple_vegetation"));
-		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, pina.getValue(), PINEAPPLE_PLANT);
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, pina.getValue(), JUNGLE_PLANTS);
 		
 		BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.FOREST), GenerationStep.Feature.VEGETAL_DECORATION, forestTrees);
 		BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.TAIGA), GenerationStep.Feature.VEGETAL_DECORATION, taigaVegetation);
