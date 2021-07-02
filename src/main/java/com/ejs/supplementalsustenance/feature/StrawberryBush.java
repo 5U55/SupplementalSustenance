@@ -29,12 +29,12 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class BerryBushBlock extends PlantBlock implements Fertilizable {
+public class StrawberryBush extends PlantBlock implements Fertilizable {
    public static final IntProperty AGE;
    private static final VoxelShape SMALL_SHAPE;
    private static final VoxelShape LARGE_SHAPE;
 
-   public BerryBushBlock(Settings settings) {
+   public StrawberryBush(Settings settings) {
       super(settings);
       this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0));
    }
@@ -42,7 +42,7 @@ public class BerryBushBlock extends PlantBlock implements Fertilizable {
 
 @Environment(EnvType.CLIENT)
    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-      return new ItemStack(ModItems.RASPBERRIES);
+      return new ItemStack(ModItems.STRAWBERRIES);
    }
 
    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -75,7 +75,7 @@ public class BerryBushBlock extends PlantBlock implements Fertilizable {
          return ActionResult.PASS;
       } else if (i > 1) {
          int j = 1 + world.random.nextInt(2);
-         dropStack(world, pos, new ItemStack(ModItems.RASPBERRIES, j + (bl ? 1 : 0)));
+         dropStack(world, pos, new ItemStack(ModItems.STRAWBERRIES, j + (bl ? 1 : 0)));
          world.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
          world.setBlockState(pos, (BlockState)state.with(AGE, 1), 2);
          return ActionResult.success(world.isClient);

@@ -6,9 +6,12 @@ import com.ejs.supplementalsustenance.block.LimeTreeSaplingGenerator;
 import com.ejs.supplementalsustenance.block.OrangeTreeSaplingGenerator;
 import com.ejs.supplementalsustenance.block.PeachTreeSaplingGenerator;
 import com.ejs.supplementalsustenance.feature.BerryBushBlock;
+import com.ejs.supplementalsustenance.feature.BlueberryBush;
+import com.ejs.supplementalsustenance.feature.StrawberryBush;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.SaplingBlock;
@@ -52,7 +55,11 @@ public class ModItems {
 	// plants
 	public static final BerryBushBlock RASPBERRY_BUSH = new BerryBushBlock(AbstractBlock.Settings
 			.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
-	public static final BerryBushBlock BLUEBERRY_BUSH = new BerryBushBlock(AbstractBlock.Settings
+	public static final BlueberryBush BLUEBERRY_BUSH = new BlueberryBush(AbstractBlock.Settings
+			.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+	public static final StrawberryBush STRAWBERRY_BUSH = new StrawberryBush(AbstractBlock.Settings
+			.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+	public static final Block PINEAPPLE_PLANT = new Block(AbstractBlock.Settings
 			.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
 
 	
@@ -86,10 +93,17 @@ public class ModItems {
 			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(2.4f).build()));
 	public static final Item LIMES = new Item(new Item.Settings().group(ItemGroup.FOOD)
 			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(2.4f).build()));
+	public static final Item GRAPES = new Item(new Item.Settings().group(ItemGroup.FOOD)
+			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(2.4f).build()));
+	
 	public static final AliasedBlockItem RASPBERRIES = new AliasedBlockItem(RASPBERRY_BUSH, new Item.Settings()
 			.group(ItemGroup.FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(2.4f).build()));
 	public static final AliasedBlockItem BLUEBERRIES = new AliasedBlockItem(BLUEBERRY_BUSH, new Item.Settings()
 			.group(ItemGroup.FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(2.4f).build()));
+	public static final AliasedBlockItem STRAWBERRIES = new AliasedBlockItem(STRAWBERRY_BUSH, new Item.Settings()
+			.group(ItemGroup.FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(2.4f).build()));
+	public static final AliasedBlockItem PINAPPLES = new AliasedBlockItem(PINEAPPLE_PLANT, new Item.Settings()
+			.group(ItemGroup.FOOD).food((new FoodComponent.Builder()).hunger(6).saturationModifier(5.0f).build()));
 
 	// foods
 	public static final Item LEMON_PIE = new Item(new Item.Settings().group(ItemGroup.FOOD)
@@ -97,6 +111,14 @@ public class ModItems {
 	public static final Item LIME_PIE = new Item(new Item.Settings().group(ItemGroup.FOOD)
 			.food((new FoodComponent.Builder()).hunger(8).saturationModifier(4.8f).build()));
 	public static final Item PEACH_PIE = new Item(new Item.Settings().group(ItemGroup.FOOD)
+			.food((new FoodComponent.Builder()).hunger(8).saturationModifier(4.8f).build()));
+	public static final Item BLUEBERRY_PIE = new Item(new Item.Settings().group(ItemGroup.FOOD)
+			.food((new FoodComponent.Builder()).hunger(8).saturationModifier(4.8f).build()));
+	public static final Item APPLE_PIE = new Item(new Item.Settings().group(ItemGroup.FOOD)
+			.food((new FoodComponent.Builder()).hunger(8).saturationModifier(4.8f).build()));
+	public static final Item PINEAPPLE_CAKE = new Item(new Item.Settings().group(ItemGroup.FOOD)
+			.food((new FoodComponent.Builder()).hunger(8).saturationModifier(4.8f).build()));
+	public static final Item STRAWBERRY_CAKE = new Item(new Item.Settings().group(ItemGroup.FOOD)
 			.food((new FoodComponent.Builder()).hunger(8).saturationModifier(4.8f).build()));
 
 	public static final Item LEMON_LOAF = new Item(new Item.Settings().group(ItemGroup.FOOD)
@@ -106,6 +128,10 @@ public class ModItems {
 	public static final Item LIME_JUICE = new MilkBucketItem(
 			(new Item.Settings()).recipeRemainder(Items.BUCKET).maxCount(1).group(ItemGroup.MISC));
 	public static final Item LEMON_JUICE = new MilkBucketItem(
+			(new Item.Settings()).recipeRemainder(Items.BUCKET).maxCount(1).group(ItemGroup.MISC));
+	public static final Item PINEAPPLE_JUICE = new MilkBucketItem(
+			(new Item.Settings()).recipeRemainder(Items.BUCKET).maxCount(1).group(ItemGroup.MISC));
+	public static final Item GRAPE_JUICE = new MilkBucketItem(
 			(new Item.Settings()).recipeRemainder(Items.BUCKET).maxCount(1).group(ItemGroup.MISC));
 
 	public static void registerItems() {
@@ -133,6 +159,14 @@ public class ModItems {
 				BLUEBERRY_BUSH);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "blueberries"),
 				BLUEBERRIES);
+		Registry.register(Registry.BLOCK, new Identifier(SupplementalSustenance.MOD_ID, "strawberry_bush"),
+				STRAWBERRY_BUSH);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "strawberries"),
+				STRAWBERRIES);
+		Registry.register(Registry.BLOCK, new Identifier(SupplementalSustenance.MOD_ID, "pineapple_plant"),
+				PINEAPPLE_PLANT);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "pineapple"),
+				PINAPPLES);
 
 		Registry.register(Registry.BLOCK, new Identifier(SupplementalSustenance.MOD_ID, "peach_leaves"), PEACH_LEAVES);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "peach_leaves"),
@@ -151,14 +185,21 @@ public class ModItems {
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lemon"), LEMONS);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "orange"), ORANGES);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lime"), LIMES);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "grapes"), GRAPES);
 
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lemon_pie"), LEMON_PIE);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lime_pie"), LIME_PIE);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "peach_pie"), PEACH_PIE);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lemon_loaf"), LEMON_LOAF);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "blueberry_pie"), BLUEBERRY_PIE);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "apple_pie"), APPLE_PIE);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "pineapple_cake"), PINEAPPLE_CAKE);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "strawberry_cake"), STRAWBERRY_CAKE);
 
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "orange_juice"), ORANGE_JUICE);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lime_juice"), LIME_JUICE);
 		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "lemon_juice"), LEMON_JUICE);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "grape_juice"), GRAPE_JUICE);
+		Registry.register(Registry.ITEM, new Identifier(SupplementalSustenance.MOD_ID, "pineapple_juice"), PINEAPPLE_JUICE);
 	}
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "supplementalsustenance:block/strawberry_bush_stage3"
+  }
+}

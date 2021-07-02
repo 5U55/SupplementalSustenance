@@ -11,6 +11,7 @@
 	"block.supplementalsustenance.lime_sapling": "Lime Sapling",
 	"block.supplementalsustenance.lime_leaves": "Lime Leaves",
 	"item.supplementalsustenance.lime": "Lime",
+	"item.supplementalsustenance.grapes": "Grapes",
 	"item.supplementalsustenance.lemon_loaf": "Lemon Loaf",
 	"item.supplementalsustenance.lemon_pie": "Lemon Merangue Pie",
 	"item.supplementalsustenance.lime_pie": "Key Lime Pie",
@@ -18,5 +19,14 @@
 	"item.supplementalsustenance.peach_pie": "Peach Juice",
 	"item.supplementalsustenance.lemon_juice": "Lemonade",
 	"item.supplementalsustenance.lime_juice": "Limeade",
-	"item.supplementalsustenance.raspberries": "Raspberries"
+	"item.supplementalsustenance.raspberries": "Raspberries",
+	"item.supplementalsustenance.blueberries": "Blueberries",
+	"item.supplementalsustenance.strawberries": "Strawberries",
+	"item.supplementalsustenance.pineapple": "Pineapple",
+	"item.supplementalsustenance.pineapple_cake": "Pineapple Upsidedown Cake",
+	"item.supplementalsustenance.strawberry_cake": "Strawberry Shortcake",
+	"item.supplementalsustenance.blueberry_pie": "Blueberry Pie",
+	"item.supplementalsustenance.apple_pie": "Apple Pie",
+	"item.supplementalsustenance.grape_juice": "Grape Juice",
+	"item.supplementalsustenance.pineapple_juice": "Pina Colada"
 }
