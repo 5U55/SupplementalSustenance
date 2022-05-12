@@ -29,26 +29,26 @@ import net.minecraft.util.registry.Registry;
 public class ModItems {
 	// saplings
 	public static final SaplingBlock PEACH_SAPLING = new SaplingBlock(new PeachTreeSaplingGenerator(),
-			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly()
-					.sounds(BlockSoundGroup.GRASS).nonOpaque());
+			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly();
+					//.sounds(BlockSoundGroup.GRASS).nonOpaque());
 	public static final BlockItem PEACH_SAPLING_BI = new BlockItem(PEACH_SAPLING,
 			new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
 	public static final SaplingBlock LEMON_SAPLING = new SaplingBlock(new LemonTreeSaplingGenerator(),
-			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly()
-					.sounds(BlockSoundGroup.GRASS).nonOpaque());
+			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly();
+					//.sounds(BlockSoundGroup.GRASS).nonOpaque());
 	public static final BlockItem LEMON_SAPLING_BI = new BlockItem(LEMON_SAPLING,
 			new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
 	public static final SaplingBlock ORANGE_SAPLING = new SaplingBlock(new OrangeTreeSaplingGenerator(),
-			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly()
-					.sounds(BlockSoundGroup.GRASS).nonOpaque());
+			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly();
+					//.sounds(BlockSoundGroup.GRASS).nonOpaque());
 	public static final BlockItem ORANGE_SAPLING_BI = new BlockItem(ORANGE_SAPLING,
 			new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
 	public static final SaplingBlock LIME_SAPLING = new SaplingBlock(new LimeTreeSaplingGenerator(),
-			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly()
-					.sounds(BlockSoundGroup.GRASS).nonOpaque());
+			AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly();
+					//.sounds(BlockSoundGroup.GRASS).nonOpaque());
 	public static final BlockItem LIME_SAPLING_BI = new BlockItem(LIME_SAPLING,
 			new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
